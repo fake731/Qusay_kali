@@ -1,106 +1,373 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Qusay_kali - Cyber Security</title>
-<style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif; background:#121212; color:#e0e0e0; line-height:1.6; padding:20px;}
-header, footer {text-align:center; margin-bottom:20px;}
-header h1 {font-size:2rem; color:#ff9800;}
-main section {background:#1e1e1e; border-radius:10px; padding:15px 20px; margin-bottom:15px; transition:all .3s ease;}
-main section:hover {background:#272727;}
-h2 {color:#03a9f4; margin-bottom:10px;}
-p {color:#e0e0e0; font-size:1rem;}
-footer p {margin-top:20px; font-size:0.9rem; color:#757575;}
-.explain {background:#2c2c2c; border-left:5px solid #03a9f4; padding:0.7rem 1rem; margin-top:0.8rem; border-radius:8px; font-size:0.95rem; color:#dcdcdc;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أمن تكنولوجيا المعلومات - تصميم احترافي</title>
+    <style>
+        /* الألوان الأساسية */
+        :root {
+            --bg-dark: #121212;
+            --card-dark: #1E1E1E;
+            --text-light: #F0F0F0;
+            --primary-neon: #00FF7F; /* أخضر نيون */
+            --accent-cyan: #03DAC6; /* أزرق سيان */
+            --warning-yellow: #FFD700;
+        }
+
+        /* التصميم العام */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* بطاقة القسم */
+        .section-card {
+            background-color: var(--card-dark);
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 255, 127, 0.15); /* إضاءة خفيفة */
+            border-top: 5px solid var(--primary-neon);
+        }
+
+        /* العناوين */
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: var(--primary-neon);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 255, 127, 0.7);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: var(--accent-cyan);
+            border-right: 5px solid var(--primary-neon);
+            padding-right: 15px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: var(--text-light);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #444;
+            padding-bottom: 5px;
+        }
+
+        /* القوائم والنصوص */
+        ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        li::before {
+            content: '»';
+            color: var(--primary-neon);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: -1em;
+            position: absolute;
+            right: 0;
+            font-size: 1.2em;
+        }
+
+        strong {
+            color: var(--primary-neon);
+            font-weight: 600;
+        }
+
+        /* صناديق المفاهيم */
+        .concept-box {
+            background-color: #252525;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-right: 4px solid var(--accent-cyan);
+        }
+
+        .concept-box p {
+            margin: 8px 0;
+        }
+
+        /* تنسيق الشبكة للمحتوى الداخلي */
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .grid-item {
+            background-color: #2C2C2C;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-neon);
+        }
+
+        .note {
+            background-color: #333333;
+            padding: 15px;
+            border-left: 5px solid var(--warning-yellow);
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-<header><h1>Qusay_kali - Cyber Security</h1></header>
-<main>
+    <div class="container">
+        <header class="section-card">
+            <h1>أمن تكنولوجيا المعلومات (Cyber Security)</h1>
+            <p style="text-align: center; color: #BBB;">مفاهيم شاملة في الأمن السيبراني وحماية البيانات.</p>
+        </header>
 
-<!-- الشرائح 1-61 كاملة -->
-<section><h2>الشريحة 1</h2><p>شريحة العنوان: أمن تكنولوجيا المعلومات Cyber Security، وتشير إلى مرجعية المادة (SPECTO).</p><div class="explain">مقدمة للدورة ومرجع رسمي.</div></section>
-<section><h2>الشريحة 2</h2><p>مفاهيم الأمن: التهديدات المتعلقة بالبيانات، قيمة المعلومات، الأمن الشخصي، وأمن الملفات.</p><div class="explain">توضيح محاور الدورة التدريبية.</div></section>
-<section><h2>الشريحة 3</h2><p>التمييز بين البيانات والمعلومات: البيانات غير معالجة، والمعلومات ذات معنى بعد المعالجة.</p><div class="explain">البيانات خام، المعلومات معالجة.</div></section>
-<section><h2>الشريحة 4</h2><p>تعريف التهديدات الإلكترونية: الجريمة الإلكترونية، القرصنة، الفرق بين ethical cracking وcracking.</p><div class="explain">أمثلة عملية على القرصنة الأخلاقية.</div></section>
-<section><h2>الشريحة 5</h2><p>مصادر تهديدات البيانات: قوى خارجية، تهديدات من الأشخاص، مزودي الخدمة.</p><div class="explain">أنواع التهديدات وتأثيرها على البيانات.</div></section>
-<section><h2>الشريحة 6</h2><p>الحوسبة السحابية: خدمات عبر الإنترنت لتشارك الموارد والبيانات.</p><div class="explain">شرح ماهية الحوسبة السحابية.</div></section>
-<section><h2>الشريحة 7</h2><p>ثغرات الحوسبة السحابية: Session Hijacking، موثوقية الخدمة، الاعتماد على الإنترنت.</p><div class="explain">أهم الثغرات المحتملة.</div></section>
-<section><h2>الشريحة 8</h2><p>تهديدات الحوسبة السحابية: التحكم في البيانات، DoS، فقدان الخصوصية، Insider Threat، فقدان البيانات.</p><div class="explain">تكملة تهديدات الحوسبة السحابية.</div></section>
-<section><h2>الشريحة 9</h2><p>أهمية حماية المعلومات الشخصية: منع سرقة/انتحال الهوية والاحتيال.</p><div class="explain">حماية البيانات الشخصية أساسية.</div></section>
-<section><h2>الشريحة 10</h2><p>حماية المعلومات التجارية الحساسة: منع سرقة تفاصيل العملاء أو البيانات المالية.</p><div class="explain">أهمية حماية البيانات للشركات.</div></section>
-<section><h2>الشريحة 11</h2><p>تدابير أمن المعلومات: التشفير وكلمات المرور، ميزات CIA Triad.</p><div class="explain">شرح الخصوصية، الكمال، والتوفر.</div></section>
-<section><h2>الشريحة 12</h2><p>حماية خصوصية البيانات والمتطلبات القانونية: GDPR 1995، Data Subjects، Data Controllers.</p><div class="explain">التزامات حماية البيانات القانونية.</div></section>
-<section><h2>الشريحة 13</h2><p>إرشادات وسياسات استخدام تكنولوجيا المعلومات: إعدادات الحماية، مراجعة الخصوصية، اتفاقيات السرية، تمزيق الأوراق، عدم الرد على رسائل مشبوهة.</p><div class="explain">أفضل ممارسات استخدام ICT.</div></section>
-<section><h2>الشريحة 14</h2><p>الهندسة الاجتماعية: جمع المعلومات، الاحتيال، الوصول إلى النظام، المكالمات الهاتفية، Phishing، Shoulder Surfing.</p><div class="explain">شرح أساليب الهندسة الاجتماعية.</div></section>
-<section><h2>الشريحة 15</h2><p>طرق سرقة الهوية: Information diving، قرصنة البطاقات، Skimming، Pretexting.</p><div class="explain">توضيح أساليب سرقة الهوية المختلفة.</div></section>
-<section><h2>الشريحة 16</h2><p>أمن الملفات (وحدات الماكرو): تأثير تمكين/تعطيل وحدات الماكرو.</p><div class="explain">تحذير من تمكين وحدات الماكرو الضارة.</div></section>
-<section><h2>الشريحة 17</h2><p>تعيين كلمة مرور للملفات المضغوطة: حماية الملفات المضغوطة بكلمة مرور.</p><div class="explain">خطوات حماية الملفات المضغوطة.</div></section>
-<section><h2>الشريحة 18</h2><p>حماية المستندات والجداول الإلكترونية: تعيين كلمة مرور لحماية المستندات ومصنفات الجداول.</p><div class="explain">تطبيق كلمات مرور على الملفات.</div></section>
-<section><h2>الشريحة 19</h2><p>إيجابيات وقيود التشفير: حماية البيانات، فقدان البيانات عند ضياع المفتاح.</p><div class="explain">مميزات وعيوب التشفير.</div></section>
-<section><h2>الشريحة 20</h2><p>البرامج الماكرة/الخبيثة: التعريف، الوظيفة، الأنواع، الحماية.</p><div class="explain">شرح أساسيات البرمجيات الضارة.</div></section>
-<section><h2>الشريحة 21</h2><p>البرامج الماكرة: حصان طروادة، Rootkits، Back doors.</p><div class="explain">آليات اختباء البرامج الضارة.</div></section>
-<section><h2>الشريحة 22</h2><p>البرمجيات الخبيثة المعدية: Viruses، Worms.</p><div class="explain">توضيح الفرق بين الفيروسات والديدان.</div></section>
-<section><h2>الشريحة 23</h2><p>برامج سرقة البيانات وتوليد الربح: Adware، Spyware، Botnets، Keystroke logging، Diallers.</p><div class="explain">أنواع البرامج الخبيثة للربح وسرقة البيانات.</div></section>
-<section><h2>الشريحة 24</h2><p>برامج الفدية: Ransomware، الحماية: تحديث البرامج، عدم النقر على الروابط المشبوهة، النسخ الاحتياطي.</p><div class="explain">حماية البيانات من برامج الفدية.</div></section>
-<section><h2>الشريحة 25</h2><p>الحماية من البرمجيات الخبيثة: برامج مكافحة الفيروسات، الفحص والتحديث الدوري.</p><div class="explain">استخدام مضاد الفيروسات بشكل فعال.</div></section>
-<section><h2>الشريحة 26</h2><p>أمن الشبكة: الشبكات، توصيلات الشبكة، الأمن اللاسلكي، التحكم بالوصول.</p><div class="explain">مخطط أقسام أمن الشبكة.</div></section>
-<section><h2>الشريحة 27</h2><p>أنواع الشبكات: LAN، WAN، VPN.</p><div class="explain">التعرف على أنواع الشبكات.</div></section>
-<section><h2>الشريحة 28</h2><p>VPN: ربط المستخدمين المصرح لهم بشكل آمن.</p><div class="explain">شرح VPN واستخدامه.</div></section>
-<section><h2>الشريحة 29</h2><p>مسؤول الشبكة والجدار الناري: دور المسؤول، وظيفة الجدار الناري وقيوده.</p><div class="explain">شرح مسؤولية الجدار الناري وقيوده.</div></section>
-<section><h2>الشريحة 30</h2><p>خيارات الاتصال بالشبكة: السلكية والطريقة اللاسلكية.</p><div class="explain">طرق الاتصال المختلفة وتأثيرها الأمني.</div></section>
+        <section class="section-card">
+            <h2>مفاهيم الأمن (Security Concepts)</h2>
+            <div class="grid-3-col">
+                <div class="grid-item">
+                    <h3>التهديدات</h3>
+                    <ul>
+                        <li>التهديدات المتعلقة بالبيانات</li>
+                        <li>التهديدات البشرية والخارجية</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>أساسيات الأمن</h3>
+                    <ul>
+                        <li>قيمة المعلومات وأهميتها</li>
+                        <li>الخصوصية والسرّية والكمال والتوفّر</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h3>الأمن العملي</h3>
+                    <ul>
+                        <li>الأمن الشخصي (Social Engineering)</li>
+                        <li>أمن الملفات والتشفير</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<section><h2>الشريحة 31</h2><p>الآثار الأمنية للاتصال بالشبكة: مخاطر البرامج الخبيثة، الوصول غير المصرح به، صعوبة الحفاظ على الخصوصية.</p><div class="explain">تحذيرات عند الاتصال بالشبكات.</div></section>
-<section><h2>الشريحة 32</h2><p>الأمن اللاسلكي: حماية الشبكات عبر كلمات المرور وأنواع WEP، WPA، وMAC.</p><div class="explain">توضيح أساليب حماية الشبكات اللاسلكية.</div></section>
-<section><h2>الشريحة 33</h2><p>نقاط الاتصال الشخصية: تمكين/تعطيل مشاركة الإنترنت على الهاتف الذكي.</p><div class="explain">شرح استخدام Hotspots بأمان.</div></section>
-<section><h2>الشريحة 34</h2><p>أساليب التحكم بالوصول: كلمات مرور، PIN، التشفير، مصادقة متعددة العوامل، OTP.</p><div class="explain">طرق التحكم بالوصول المختلفة.</div></section>
-<section><h2>الشريحة 35</h2><p>سياسات كلمة المرور الجيدة: المحافظة على السرية، التغيير الدوري، طول مناسب، تجنب الكلمات الشخصية.</p><div class="explain">كيفية إنشاء كلمات مرور قوية.</div></section>
-<section><h2>الشريحة 36</h2><p>برامج إدارة كلمات المرور: Dashlane، Google Password Manager، LastPass، KeePass.</p><div class="explain">أمثلة على أدوات إدارة كلمات المرور.</div></section>
-<section><h2>الشريحة 37</h2><p>الاستخدام الآمن للويب: تصفح الويب والشبكات الاجتماعية.</p><div class="explain">مخطط الاستخدام الآمن للويب.</div></section>
-<section><h2>الشريحة 38</h2><p>تصفح الويب الآمن (الجزء الأول): أنشطة على مواقع آمنة، التعرف على https ورمز القفل.</p><div class="explain">توضيح كيفية التحقق من أمان المواقع.</div></section>
-<section><h2>الشريحة 39</h2><p>تصفح الويب الآمن (الجزء الثاني): تقييم أمان الموقع إذا لم تظهر رموز الأمان.</p><div class="explain">خطوات التحقق من الموقع بشكل آمن.</div></section>
-<section><h2>الشريحة 40</h2><p>تصفح الويب الآمن (الجزء الثالث): تحذير من Pharming، مصطلحات الشهادة الرقمية، الإكمال التلقائي، Cookies.</p><div class="explain">الحذر من المواقع المزيفة وكيفية التعامل معها.</div></section>
-<section><h2>الشريحة 41</h2><p>ملفات الارتباط والإكمال التلقائي: تفاصيل ملفات الارتباط وميزة Autofill.</p><div class="explain">فهم ملفات تعريف الارتباط وكيفية إدارتها.</div></section>
-<section><h2>الشريحة 42</h2><p>برامج التصفية والرقابة الأبوية: مراقبة وتقييد الوصول للأطفال والموظفين.</p><div class="explain">أهمية استخدام برامج التصفية للحماية.</div></section>
-<section><h2>الشريحة 43</h2><p>أمن الشبكات الاجتماعية: عدم الإفصاح عن معلومات سرية، تطبيق إعدادات الخصوصية، فهم الأخطار المحتملة.</p><div class="explain">كيفية الاستخدام الآمن للشبكات الاجتماعية.</div></section>
-<section><h2>الشريحة 44</h2><p>تمرين (أسئلة مراجعة): أسئلة اختيار من متعدد لمراجعة المفاهيم السابقة.</p><div class="explain">اختبار سريع للمعلومات المكتسبة.</div></section>
-<section><h2>الشريحة 45</h2><p>الاتصالات (مخطط): البريد الإلكتروني والمراسلة الفورية.</p><div class="explain">أقسام أمن الاتصالات.</div></section>
-<section><h2>الشريحة 46</h2><p>أمن البريد الإلكتروني (الجزء الأول): تشفير البريد، التوقيع الرقمي، التحذير من الرسائل الاحتيالية.</p><div class="explain">أفضل ممارسات البريد الإلكتروني.</div></section>
-<section><h2>الشريحة 47</h2><p>أمن البريد الإلكتروني (الجزء الثاني): التحذير من التصيد، التضليل، خطر المرفقات غير الموثوقة.</p><div class="explain">تجنب الرسائل الضارة.</div></section>
-<section><h2>الشريحة 48</h2><p>المراسلة الفورية: ثغرات أمنية، وصول البرامج الخبيثة، سرقة البيانات.</p><div class="explain">شرح المخاطر المرتبطة بالمراسلة الفورية.</div></section>
-<section><h2>الشريحة 49</h2><p>أساليب ضمان السرية في IM: التشفير، عدم الإفصاح، الحد من مشاركة الملفات.</p><div class="explain">طرق حماية المراسلة الفورية.</div></section>
-<section><h2>الشريحة 50</h2><p>مخاطر وأمن الأجهزة النقالة: التصيد، اختطاف البلوتوث، التطبيقات الضارة.</p><div class="explain">تجنب البرمجيات الخبيثة على الهواتف.</div></section>
-<section><h2>الشريحة 51</h2><p>ميزات الطوارئ في Android: استخدام حساب Google لتحديد موقع الهاتف أو مسح البيانات، الخيارات: الرنين، القفل، المحو.</p><div class="explain">طرق حماية الهاتف في حال الفقدان أو السرقة.</div></section>
-<section><h2>الشريحة 52</h2><p>الإدارة الآمنة للبيانات: تأمين البيانات، النسخ الاحتياطي، الإتلاف الآمن.</p><div class="explain">مخطط الإدارة الآمنة للبيانات.</div></section>
-<section><h2>الشريحة 53</h2><p>نسخ احتياطية للبيانات: أهمية النسخ الدوري على وسائط مختلفة لتجنب فقدان البيانات.</p><div class="explain">تطبيق نسخ احتياطي منتظم.</div></section>
-<section><h2>الشريحة 54</h2><p>طرق استعادة البيانات: استرجاع البيانات من النسخ الاحتياطية والتحقق من سلامتها.</p><div class="explain">التأكد من صحة النسخ قبل الاسترجاع.</div></section>
-<section><h2>الشريحة 55</h2><p>التخلص الآمن من البيانات: تمزيق الورق، مسح البيانات الرقمية، تدمير الوسائط التالفة.</p><div class="explain">طرق آمنة للتخلص من البيانات الحساسة.</div></section>
-<section><h2>الشريحة 56</h2><p>إدارة الأجهزة المحمولة: تحديث النظام، كلمات مرور قوية، حماية الشبكات اللاسلكية.</p><div class="explain">ممارسات إدارة الهواتف المحمولة بأمان.</div></section>
-<section><h2>الشريحة 57</h2><p>سياسات الاستخدام المقبول للأجهزة: عدم تثبيت برامج غير موثوقة، عدم مشاركة كلمات المرور، الالتزام بقواعد الأمان.</p><div class="explain">إرشادات استخدام الأجهزة في بيئة العمل أو التعليم.</div></section>
-<section><h2>الشريحة 58</h2><p>خلاصة الدورة: تلخيص كل الشرائح السابقة، ممارسات أمن المعلومات، حماية البيانات الشخصية، كلمات مرور قوية، أمان الشبكات، إدارة الأجهزة.</p><div class="explain">خاتمة الدورة وتلخيص شامل.</div></section>
+        <section class="section-card">
+            <h2>مفاهيم الأمن – تهديدات البيانات</h2>
 
-</main>
+            <h3>التمييز بين البيانات والمعلومات</h3>
+            <div class="concept-box">
+                <p><strong>البيانات (Data):</strong> هي معلومات غير معالجة. قد تكون عبارة عن مجموعة من الأرقام أو النصوص أو الصور الخام.</p>
+                <p><strong>المعلومات (Information):</strong> هي ناتج البيانات المعالجة مما يجعلها ذات مغزى للشخص الذي يستقبلها. </p>
+            </div>
 
+            <h3>النشاط غير القانوني والجريمة الإلكترونية</h3>
+            <ul>
+                <li><strong>الجريمة الإلكترونية (Cybercrime):</strong> هو نشاط غير قانوني يستخدم الإنترنت أو الكمبيوتر.</li>
+                <li><strong>القرصنة (Hacking):</strong> الوصول غير المصرح به لنظام الكمبيوتر لأغراض غير قانونية.</li>
+                <li><strong>القرصنة الأخلاقية (Ethical Cracking):</strong> خرق أمن النظام بإذن من المالك للكشف عن نقاط الضعف لمنع الاحتيال وسرقة البيانات.</li>
+                <li><strong>الاختراق (Cracking):</strong> خرق أمان الكمبيوتر لاختراق برامج محمية بحقوق الطبع والنشر واستخدامها دون ترخيص (مثل كسر حماية كلمة المرور أو البرامج).</li>
+            </ul>
 
-      
-    </main>
+            <h3>مصادر التهديدات</h3>
+            <ul>
+                <li><strong>قوى خارجية قاهرة:</strong> (Fire)، (Floods)، (War).</li>
+                <li><strong>من الأشخاص:</strong> الموظفون، مزودو الخدمة، الأفراد الخارجيون غير المصرح لهم.</li>
+            </ul>
+        </section>
 
-    <footer>
-        <p>© 2025 Qusay_kali - Cyber Security Core level </p>
+        <section class="section-card">
+            <h2>الحوسبة السحابية (Cloud Computing) والتهديدات المرتبطة بها</h2>
+            <div class="concept-box">
+                <p><strong>التعريف:</strong> خدمات حوسبة قائمة على الإنترنت حسب الطلب، تتيح مشاركة الموارد والبيانات مع الأجهزة الأخرى في أي وقت ومن أي مكان.</p>
+            </div>
+
+            <h3>أمثلة على الثغرات والتهديدات السحابية</h3>
+            <div class="grid-3-col">
+                <div class="grid-item">قرصنة الجلسة (Session Hijacking)</div>
+                <div class="grid-item">رفض الخدمة (Denial of Service)</div>
+                <div class="grid-item">فقدان الخصوصية والبيانات (Loss of Data)</div>
+                <div class="grid-item">الاعتماد على الإنترنت (Reliance on the Internet)</div>
+                <div class="grid-item">الاختراقات من الداخل (Malicious Insider)</div>
+                <div class="grid-item">موثوقية الخدمة (Service Reliability)</div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>الميزات الأساسية لأمن المعلومات (CIA Triad)</h2>
+            <div class="concept-box">
+                <p><strong>الخصوصية والسرّية (Confidentiality):</strong> حماية المعلومات من الوصول غير المصرح به.</p>
+                <p><strong>الكمال (Integrity):</strong> الثقة بمصادر المعلومات، والتأكد من أنها صحيحة وكاملة ولم يتم تعديلها. </p>
+                <p><strong>التوفر (Availability):</strong> توفر مصادر المعلومات وإمكانية الوصول إليها عندما تُطلب من الأشخاص المخولين.</p>
+            </div>
+
+            <h3>حماية المعلومات الشخصية والتجارية</h3>
+            <ul>
+                <li>حماية المعلومات الشخصية لتجنب سرقة/انتحال الشخصية والاحتيال.</li>
+                <li>حماية المعلومات التجارية الحساسة لمنع سرقة أو إساءة استخدام تفاصيل العملاء والمعلومات المالية.</li>
+            </ul>
+
+            <h3>إرشادات وسياسات لاستخدام تكنولوجيا المعلومات</h3>
+            <ul>
+                <li>مراجعة سياسة الخصوصية للمواقع والتأكد من الاتفاقية السرية.</li>
+                <li>استخدام جهاز تمزيق الأوراق للمستندات الحساسة.</li>
+                <li>عدم الاستجابة لرسائل البريد الإلكتروني التي تطلب بيانات شخصية (التصيّد).</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>الأمن الشخصي (Personal Security)</h2>
+
+            <h3>الهندسة الاجتماعية (Social Engineering)</h3>
+            <ul>
+                <li><strong>الآثار:</strong> جمع المعلومات، الاحتيال، الوصول إلى نظام الحاسوب.</li>
+                <li><strong>الأساليب:</strong> المكالمات الهاتفية، الخداع والتصيّد (Phishing)، استراق النظر (Shoulder surfing).</li>
+            </ul>
+
+            <h3>طرق سرقة الشخصية/الهوية (Identity Theft)</h3>
+            <ul>
+                <li>استعادة المعلومات (Information diving).</li>
+                <li>الاستخلاص (Skimming) للبطاقات الائتمانية.</li>
+                <li>التستّر (Pretexting): استخدام المكر والخداع للحصول على المعلومات.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>أمن الملفات والتشفير (File Security & Encryption)</h2>
+            <ul>
+                <li>فهم أثر تمكين أو تعطيل إعدادات الحماية الخاصة بوحدات الماكرو.</li>
+                <li>تعيين كلمة مرور للملفات المضغوطة وللمستندات ومصنفات الجداول الإلكترونية.</li>
+            </ul>
+            <div class="concept-box">
+                <p><strong>إيجابيات التشفير:</strong> لا يمكن قراءة البيانات المشفرة دون مفتاح فك التشفير.</p>
+                <p><strong>قيود التشفير:</strong> إذا ضاع مفتاح التشفير، فإن البيانات لا يمكن قراءتها ولا استخدامها.</p>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>البرامج الماكرة/الخبيثة (Malware) وأنواعها</h2>
+
+            <h3>أنواع البرامج الخبيثة</h3>
+            <div class="grid-3-col">
+                <div class="grid-item">
+                    <h4>الاختباء والتدمير</h4>
+                    <ul>
+                        <li>حصان طروادة (Trojans)</li>
+                        <li>البرمجيات الجذرية (Rootkits)</li>
+                        <li>الأبواب الخلفية (Back doors)</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h4>المعدية وسرقة البيانات</h4>
+                    <ul>
+                        <li>الفيروسات (Viruses) والديدان (Worms)</li>
+                        <li>برامج التجسس (Spyware)</li>
+                        <li>تسجيل حركات لوحة المفاتيح (Keystroke logging)</li>
+                    </ul>
+                </div>
+                <div class="grid-item">
+                    <h4>الابتزاز والإعلانات</h4>
+                    <ul>
+                        <li>برامج الفدية (Ransomware)</li>
+                        <li>برامج دعم الدعايات (Adware)</li>
+                        <li>شبكات الروبوت (Botnets)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>الحماية والوقاية</h3>
+            <ul>
+                <li>تحديث نظام التشغيل والبرنامج بانتظام.</li>
+                <li>عدم النقر فوق الروابط المشبوهة أو فتح المرفقات غير الموثوق بها.</li>
+                <li>تثبيت برامج مكافحة الفيروسات وتحديث ملفات تعريفها بانتظام.</li>
+                <li>النسخ الاحتياطي للبيانات كإجراء وقائي ضد برامج الفدية.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>أمن الشبكة (Network Security) والتحكم بالوصول</h2>
+
+            <h3>الشبكات ووظائفها</h3>
+            <ul>
+                <li><strong>الشبكة المحلية (LAN):</strong> تربط بين الحواسيب في رقعة جغرافية صغيرة.</li>
+                <li><strong>الشبكة الافتراضية الخاصة (VPN):</strong> تتيح للمستخدمين تبادل المعلومات سراً بين مواقع متباعدة.</li>
+            </ul>
+            <div class="concept-box">
+                <p><strong>الجدار الناري (Firewall):</strong> وظيفته حماية الشبكة ومنع عمليات الدخول غير المصرح بها، لكن يمكن أن يحدّ من الاتصالات المشروعة.</p>
+            </div>
+
+            <h3>التحكم بالوصول وسياسات كلمات المرور</h3>
+            <ul>
+                <li><strong>أساليب التحكم:</strong> كلمات المرور، رقم التعريف الشخصي (PIN)، المصادقة متعددة العوامل، التقنيات البيومترية.</li>
+                <li><strong>سياسة كلمة المرور الجيدة:</strong> لا تقل عن 8 عناصر، خليط من الحروف والأرقام والأحرف الخاصة (مثل !@#$%)، حروف كبيرة وصغيرة، واستخدام برنامج مدير كلمات المرور.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>الإدارة الآمنة للبيانات (Secure Data Management)</h2>
+
+            <h3>تأمين البيانات وحفظ نُسخ احتياطية منها</h3>
+            <ul>
+                <li>ضمان الأمن المادي/الفيزيائي للمعدات (مثل أسلاك الحماية).</li>
+                <li>إجراء النسخ الاحتياطي لضمان استعادة البيانات المفقودة.</li>
+                <li><strong>طرق النسخ الاحتياطي:</strong> في الموقع (Onsite Backup) أو خارج الموقع (Offsite Backup).</li>
+            </ul>
+
+            <h3>الإتلاف الآمن للبيانات</h3>
+            <div class="concept-box">
+                <p><strong>التمييز بين الحذف والإتلاف النهائي:</strong> الحذف (مثل النقل إلى سلة المحذوفات) يكون قابلاً للاستعادة. أما الإتلاف النهائي فيشمل التمزيق، إزالة المغنطة، أو استخدام أدوات إتلاف البيانات البرمجية لضمان عدم استعادتها.</p>
+            </div>
+        </section>
+        
+        <section class="section-card">
+            <h2>أمن نظام التشغيل (Windows Security)</h2>
+            
+            <h3>ميزات الحماية الرئيسية</h3>
+            <div class="grid-3-col">
+                <div class="grid-item">
+                    <h4>الجدار الناري (Firewall)</h4>
+                    <p>مراقبة حركة مرور البيانات الواردة والصادرة واتخاذ قرار بالسماح لها أو حظرها.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>حماية الفيروسات والتهديدات (Virus & threat protection)</h4>
+                    <p>إعداد فحص دوري للملفات، وحماية في الوقت الحقيقي ضد البرامج الضارة والفيروسات.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>حماية الحساب (Account protection)</h4>
+                    <p>إدارة تسجيل الدخول وكلمات المرور والحماية من الوصول غير المصرح به.</p>
+                </div>
+            </div>
+
+            <h3>خيارات الإعدادات الأساسية</h3>
+            <ul>
+                <li><strong>مكافحة الفيروسات (Antivirus)</strong>: لابد أن يبقى محدثًا.</li>
+                <li><strong>مركز إجراءات النظام (Action Center)</strong>: يوفر إخطارات حول الإجراءات الأمنية والتهديدات.</li>
+                <li><strong>إعدادات كلمة المرور</strong>: استخدام كلمات مرور قوية ومركبة.</li>
+            </ul>
+        </section>
+        <footer>
+        <p>© 2025 Qusay_kali - Cyber Security level Beginner </p>
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
