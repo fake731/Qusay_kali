@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أمن تكنولوجيا المعلومات - تصميم احترافي</title>
+    <title>أمن تكنولوجيا المعلومات - تصميم احترافي (برتقالي)</title>
     <style>
         /* الألوان الأساسية */
         :root {
-            --bg-dark: #121212;
-            --card-dark: #1E1E1E;
-            --text-light: #F0F0F0;
-            --primary-neon: #00FF7F; /* أخضر نيون */
-            --accent-cyan: #03DAC6; /* أزرق سيان */
-            --warning-yellow: #FFD700;
+            --bg-dark: #0A0A0A; /* خلفية سوداء عميقة جداً */
+            --card-dark: #1A1A1A; /* خلفية البطاقات (أغمق قليلاً) */
+            --text-light: #EEEEEE;
+            --primary-orange: #FFA500; /* البرتقالي الغني (اللون الأساسي) */
+            --accent-cyan: #03DAC6; /* السيان (لون التباين التقني الثانوي) */
         }
 
         /* التصميم العام */
@@ -33,31 +32,44 @@
             padding: 20px;
         }
 
+        /* إضافة انتقال سلس لجميع العناصر التفاعلية */
+        .section-card, .grid-item, .concept-box, h2 {
+            transition: all 0.3s ease-in-out;
+        }
+
         /* بطاقة القسم */
         .section-card {
             background-color: var(--card-dark);
             padding: 30px;
             margin-bottom: 40px;
             border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0, 255, 127, 0.15); /* إضاءة خفيفة */
-            border-top: 5px solid var(--primary-neon);
+            /* توهج خفيف وسلس باللون البرتقالي */
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.1); 
+            border-top: 5px solid var(--primary-orange); 
+        }
+        
+        /* تأثير الحركة عند المرور بالماوس (سلاسة وتميز) */
+        .section-card:hover {
+            box-shadow: 0 0 25px rgba(255, 165, 0, 0.4); /* توهج أقوى لكن ناعم */
+            transform: translateY(-3px); /* رفع خفيف جداً للبطاقة */
         }
 
         /* العناوين */
         h1 {
             text-align: center;
             font-size: 3em;
-            color: var(--primary-neon);
+            color: var(--primary-orange); 
             margin-bottom: 30px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent-cyan);
-            text-shadow: 0 0 10px rgba(0, 255, 127, 0.7);
+            /* توهج نصي ناعم */
+            text-shadow: 0 0 8px rgba(255, 165, 0, 0.5);
         }
 
         h2 {
             font-size: 2em;
-            color: var(--accent-cyan);
-            border-right: 5px solid var(--primary-neon);
+            color: var(--primary-orange); 
+            border-right: 5px solid var(--accent-cyan); 
             padding-right: 15px;
             margin-top: 0;
             margin-bottom: 25px;
@@ -85,8 +97,8 @@
         }
 
         li::before {
-            content: '»';
-            color: var(--primary-neon);
+            content: '«'; /* تغيير شكل النقطة لتبدو مختلفة */
+            color: var(--primary-orange); 
             font-weight: bold;
             display: inline-block;
             width: 1em;
@@ -97,7 +109,7 @@
         }
 
         strong {
-            color: var(--primary-neon);
+            color: var(--primary-orange); 
             font-weight: 600;
         }
 
@@ -107,7 +119,7 @@
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
-            border-right: 4px solid var(--accent-cyan);
+            border-right: 4px solid var(--primary-orange); 
         }
 
         .concept-box p {
@@ -126,16 +138,28 @@
             background-color: #2C2C2C;
             padding: 15px;
             border-radius: 6px;
-            border-left: 3px solid var(--primary-neon);
+            border-left: 3px solid var(--accent-cyan); 
+        }
+        
+        /* تأثير الحركة عند المرور بالماوس على عناصر الشبكة */
+        .grid-item:hover {
+            background-color: #383838; 
+            border-left: 3px solid var(--primary-orange); /* يتغير لون الحد إلى الأساسي */
         }
 
-        .note {
-            background-color: #333333;
-            padding: 15px;
-            border-left: 5px solid var(--warning-yellow);
-            margin: 20px 0;
-            font-style: italic;
-            border-radius: 4px;
+        /* التذييل */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid var(--primary-orange);
+            background-color: #1A1A1A;
+        }
+
+        footer p {
+            color: var(--primary-orange);
+            font-size: 1.1em;
+            margin: 0;
         }
     </style>
 </head>
@@ -186,7 +210,7 @@
             <ul>
                 <li><strong>الجريمة الإلكترونية (Cybercrime):</strong> هو نشاط غير قانوني يستخدم الإنترنت أو الكمبيوتر.</li>
                 <li><strong>القرصنة (Hacking):</strong> الوصول غير المصرح به لنظام الكمبيوتر لأغراض غير قانونية.</li>
-                <li><strong>القرصنة الأخلاقية (Ethical Cracking):</strong> خرق أمن النظام بإذن من المالك للكشف عن نقاط الضعف لمنع الاحتيال وسرقة البيانات.</li>
+                <li><strong>القرصنة الأخلاقية (Ethical Cracking):</strong> خرق أمن نظام الكمبيوتر بإذن وتفويض من مالكي النظام من أجل الكشف عن أي نقاط ضعف أو عيوب أمنية بهدف منع الاحتيال وسرقة البيانات.</li>
                 <li><strong>الاختراق (Cracking):</strong> خرق أمان الكمبيوتر لاختراق برامج محمية بحقوق الطبع والنشر واستخدامها دون ترخيص (مثل كسر حماية كلمة المرور أو البرامج).</li>
             </ul>
 
@@ -366,7 +390,10 @@
                 <li><strong>إعدادات كلمة المرور</strong>: استخدام كلمات مرور قوية ومركبة.</li>
             </ul>
         </section>
-        <footer>
+
+    </div>
+    
+    <footer>
         <p>© 2025 Qusay_kali - Cyber Security level Beginner </p>
     </footer>
 </body>
