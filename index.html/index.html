@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Qusay_kali </title>
     <style>
-        /* الألوان الأساسية */
         :root {
-            --bg-dark: #0A0A0A; /* خلفية سوداء عميقة جداً */
-            --card-dark: #1A1A1A; /* خلفية البطاقات (أغمق قليلاً) */
+            --bg-dark: #0A0A0A;
+            --card-dark: #1A1A1A;
             --text-light: #EEEEEE;
-            --primary-orange: #FFA500; /* البرتقالي الغني (اللون الأساسي) */
-            --accent-cyan: #03DAC6; /* السيان (لون التباين التقني الثانوي) */
+            --primary-orange: #FFA500;
+            --accent-cyan: #03DAC6;
         }
 
-        /* التصميم العام */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-dark);
@@ -32,29 +30,24 @@
             padding: 20px;
         }
 
-        /* إضافة انتقال سلس لجميع العناصر التفاعلية */
         .section-card, .grid-item, .concept-box, h2 {
             transition: all 0.3s ease-in-out;
         }
 
-        /* بطاقة القسم */
         .section-card {
             background-color: var(--card-dark);
             padding: 30px;
             margin-bottom: 40px;
             border-radius: 12px;
-            /* توهج خفيف وسلس باللون البرتقالي */
             box-shadow: 0 0 10px rgba(255, 165, 0, 0.1); 
             border-top: 5px solid var(--primary-orange); 
         }
         
-        /* تأثير الحركة عند المرور بالماوس (سلاسة وتميز) */
         .section-card:hover {
-            box-shadow: 0 0 25px rgba(255, 165, 0, 0.4); /* توهج أقوى لكن ناعم */
-            transform: translateY(-3px); /* رفع خفيف جداً للبطاقة */
+            box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
+            transform: translateY(-3px);
         }
 
-        /* العناوين */
         h1 {
             text-align: center;
             font-size: 3em;
@@ -62,7 +55,6 @@
             margin-bottom: 30px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent-cyan);
-            /* توهج نصي ناعم */
             text-shadow: 0 0 8px rgba(255, 165, 0, 0.5);
         }
 
@@ -84,7 +76,6 @@
             padding-bottom: 5px;
         }
 
-        /* القوائم والنصوص */
         ul {
             list-style: none;
             padding-right: 0;
@@ -97,7 +88,7 @@
         }
 
         li::before {
-            content: '«'; /* تغيير شكل النقطة لتبدو مختلفة */
+            content: '«';
             color: var(--primary-orange); 
             font-weight: bold;
             display: inline-block;
@@ -113,7 +104,6 @@
             font-weight: 600;
         }
 
-        /* صناديق المفاهيم */
         .concept-box {
             background-color: #252525;
             padding: 20px;
@@ -126,7 +116,6 @@
             margin: 8px 0;
         }
 
-        /* تنسيق الشبكة للمحتوى الداخلي */
         .grid-3-col {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -141,13 +130,11 @@
             border-left: 3px solid var(--accent-cyan); 
         }
         
-        /* تأثير الحركة عند المرور بالماوس على عناصر الشبكة */
         .grid-item:hover {
             background-color: #383838; 
-            border-left: 3px solid var(--primary-orange); /* يتغير لون الحد إلى الأساسي */
+            border-left: 3px solid var(--primary-orange);
         }
 
-        /* التذييل */
         footer {
             margin-top: 50px;
             padding: 20px;
@@ -211,7 +198,7 @@
                 <li><strong>الجريمة الإلكترونية (Cybercrime):</strong> هو نشاط غير قانوني يستخدم الإنترنت أو الكمبيوتر.</li>
                 <li><strong>القرصنة (Hacking):</strong> الوصول غير المصرح به لنظام الكمبيوتر لأغراض غير قانونية.</li>
                 <li><strong>القرصنة الأخلاقية (Ethical Cracking):</strong> خرق أمن نظام الكمبيوتر بإذن وتفويض من مالكي النظام من أجل الكشف عن أي نقاط ضعف أو عيوب أمنية بهدف منع الاحتيال وسرقة البيانات.</li>
-                <li><strong>الاختراق (Cracking):</strong> خرق أمان الكمبيوتر لاختراق برامج محمية بحقوق الطبع والنشر واستخدامها دون ترخيص (مثل كسر حماية كلمة المرور أو البرامج).</li>
+                <li><strong>الاختراق (Cracking):</strong> خرق أمان الكمبيوتر لاختراق برامج محمية بحقوق الطبع والنشر واستخدامها دون ترخيص.</li>
             </ul>
 
             <h3>مصادر التهديدات</h3>
@@ -273,7 +260,7 @@
             <ul>
                 <li>استعادة المعلومات (Information diving).</li>
                 <li>الاستخلاص (Skimming) للبطاقات الائتمانية.</li>
-                <li>التستّر (Pretexting): استخدام المكر والخداع للحصول على المعلومات.</li>
+                <li>التستّر (Pretexting).</li>
             </ul>
         </section>
 
@@ -338,13 +325,13 @@
                 <li><strong>الشبكة الافتراضية الخاصة (VPN):</strong> تتيح للمستخدمين تبادل المعلومات سراً بين مواقع متباعدة.</li>
             </ul>
             <div class="concept-box">
-                <p><strong>الجدار الناري (Firewall):</strong> وظيفته حماية الشبكة ومنع عمليات الدخول غير المصرح بها، لكن يمكن أن يحدّ من الاتصالات المشروعة.</p>
+                <p><strong>الجدار الناري (Firewall):</strong> وظيفته حماية الشبكة ومنع عمليات الدخول غير المصرح بها.</p>
             </div>
 
             <h3>التحكم بالوصول وسياسات كلمات المرور</h3>
             <ul>
                 <li><strong>أساليب التحكم:</strong> كلمات المرور، رقم التعريف الشخصي (PIN)، المصادقة متعددة العوامل، التقنيات البيومترية.</li>
-                <li><strong>سياسة كلمة المرور الجيدة:</strong> لا تقل عن 8 عناصر، خليط من الحروف والأرقام والأحرف الخاصة (مثل !@#$%)، حروف كبيرة وصغيرة، واستخدام برنامج مدير كلمات المرور.</li>
+                <li><strong>سياسة كلمة المرور الجيدة:</strong> لا تقل عن 8 عناصر، خليط من الحروف والأرقام والأحرف الخاصة، حروف كبيرة وصغيرة.</li>
             </ul>
         </section>
 
@@ -353,14 +340,14 @@
 
             <h3>تأمين البيانات وحفظ نُسخ احتياطية منها</h3>
             <ul>
-                <li>ضمان الأمن المادي/الفيزيائي للمعدات (مثل أسلاك الحماية).</li>
+                <li>ضمان الأمن المادي للمعدات.</li>
                 <li>إجراء النسخ الاحتياطي لضمان استعادة البيانات المفقودة.</li>
-                <li><strong>طرق النسخ الاحتياطي:</strong> في الموقع (Onsite Backup) أو خارج الموقع (Offsite Backup).</li>
+                <li><strong>طرق النسخ الاحتياطي:</strong> في الموقع أو خارج الموقع.</li>
             </ul>
 
             <h3>الإتلاف الآمن للبيانات</h3>
             <div class="concept-box">
-                <p><strong>التمييز بين الحذف والإتلاف النهائي:</strong> الحذف (مثل النقل إلى سلة المحذوفات) يكون قابلاً للاستعادة. أما الإتلاف النهائي فيشمل التمزيق، إزالة المغنطة، أو استخدام أدوات إتلاف البيانات البرمجية لضمان عدم استعادتها.</p>
+                <p><strong>التمييز بين الحذف والإتلاف النهائي:</strong> الحذف قابل للاستعادة. أما الإتلاف النهائي فيشمل التمزيق أو إزالة المغنطة أو استخدام أدوات برمجية لضمان عدم الاستعادة.</p>
             </div>
         </section>
         
@@ -371,23 +358,23 @@
             <div class="grid-3-col">
                 <div class="grid-item">
                     <h4>الجدار الناري (Firewall)</h4>
-                    <p>مراقبة حركة مرور البيانات الواردة والصادرة واتخاذ قرار بالسماح لها أو حظرها.</p>
+                    <p>مراقبة حركة مرور البيانات واتخاذ قرار بالسماح أو الحظر.</p>
                 </div>
                 <div class="grid-item">
-                    <h4>حماية الفيروسات والتهديدات (Virus & threat protection)</h4>
-                    <p>إعداد فحص دوري للملفات، وحماية في الوقت الحقيقي ضد البرامج الضارة والفيروسات.</p>
+                    <h4>حماية الفيروسات والتهديدات</h4>
+                    <p>فحص دوري للملفات، وحماية في الوقت الحقيقي ضد البرامج الضارة.</p>
                 </div>
                 <div class="grid-item">
-                    <h4>حماية الحساب (Account protection)</h4>
-                    <p>إدارة تسجيل الدخول وكلمات المرور والحماية من الوصول غير المصرح به.</p>
+                    <h4>حماية الحساب</h4>
+                    <p>إدارة تسجيل الدخول وكلمات المرور.</p>
                 </div>
             </div>
 
             <h3>خيارات الإعدادات الأساسية</h3>
             <ul>
-                <li><strong>مكافحة الفيروسات (Antivirus)</strong>: لابد أن يبقى محدثًا.</li>
-                <li><strong>مركز إجراءات النظام (Action Center)</strong>: يوفر إخطارات حول الإجراءات الأمنية والتهديدات.</li>
-                <li><strong>إعدادات كلمة المرور</strong>: استخدام كلمات مرور قوية ومركبة.</li>
+                <li><strong>مكافحة الفيروسات:</strong> لابد أن يبقى محدثًا.</li>
+                <li><strong>مركز إجراءات النظام:</strong> يوفر إخطارات حول التهديدات.</li>
+                <li><strong>إعدادات كلمة المرور:</strong> استخدام كلمات مرور قوية.</li>
             </ul>
         </section>
 
@@ -398,8 +385,3 @@
     </footer>
 </body>
 </html>
-
-
-
-
-
