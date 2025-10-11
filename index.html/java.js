@@ -14,3 +14,4 @@ function setDeviceClass() {
 
 window.onload = setDeviceClass;
 window.addEventListener('resize', setDeviceClass);
+
