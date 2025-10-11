@@ -1,17 +1,33 @@
 function setDeviceClass() {
-    const screenWidth = window.innerWidth;
-    const breakpoint = 768; 
-    const body = document.body;
+    const screenWidth = window.innerWidth;
+    const tabletMin = 600; 
+    const desktopMin = 1024;
+    const body = document.body;
+    
+    body.classList.remove('mobile-view', 'tablet-view', 'desktop-view');
 
-    if (screenWidth < breakpoint) {
-        body.classList.remove('desktop-view');
-        body.classList.add('mobile-view');
-    } else {
-        body.classList.remove('mobile-view');
-        body.classList.add('desktop-view');
-    }
+    if (screenWidth < tabletMin) {
+        body.classList.add('mobile-view');
+    } else if (screenWidth >= tabletMin && screenWidth < desktopMin) {
+        body.classList.add('tablet-view');
+    } else {
+        body.classList.add('desktop-view');
+    }
 }
 
-window.onload = setDeviceClass;
-window.addEventListener('resize', setDeviceClass);
+function debounce(func, delay) {
+    let timeoutId;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(context, args);
+        }, delay);
+    };
+}
 
+const debouncedSetDeviceClass = debounce(setDeviceClass, 100);
+
+window.onload = setDeviceClass;
+window.addEventListener('resize', debouncedSetDeviceClass);
