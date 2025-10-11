@@ -483,4 +483,28 @@ pre:hover {
     font-weight: 700;
     direction: ltr;
     margin-bottom: 0;
+
+}
+.header {
+    padding: 30px;
+    font-size: 28px;
+    text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 15px;
+        font-size: 20px;
+    }
+    .main-content {
+        padding: 10px;
+    }
+}
+
+.mobile-view .side-bar {
+    display: none;
+}
+
+.desktop-view .logo {
+    margin-right: 50px;
 }
