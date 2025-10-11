@@ -1,0 +1,16 @@
+function setDeviceClass() {
+    const screenWidth = window.innerWidth;
+    const breakpoint = 768; 
+    const body = document.body;
+
+    if (screenWidth < breakpoint) {
+        body.classList.remove('desktop-view');
+        body.classList.add('mobile-view');
+    } else {
+        body.classList.remove('mobile-view');
+        body.classList.add('desktop-view');
+    }
+}
+
+window.onload = setDeviceClass;
+window.addEventListener('resize', setDeviceClass);
